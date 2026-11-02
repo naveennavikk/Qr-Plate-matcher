@@ -31,4 +31,4 @@ This VS Code project checks whether a reference plate appears in a property imag
 
 5. Open the local URL printed in the terminal. Upload the reference plate and property image, then click **Check plate**.
 
-The first run downloads the Grounding DINO model from Hugging Face, so internet access is needed once. The `torch` and `torchvision` packages are installed as CPU builds by default; for GPU acceleration, install the appropriate PyTorch build for your system first, then install the remaining packages.
+The fast matcher downsizes property photos above 1400 pixels on the long edge and uses a reduced set of scales. It keeps the original image for display and maps match coordinates back to the original resolution. Grounding DINO is only loaded and run as a fallback if the fast search misses; its first fallback use downloads model files from Hugging Face. The `torch` and `torchvision` packages are installed as CPU builds by default; for GPU acceleration, install the appropriate PyTorch build for your system first, then install the remaining packages.
